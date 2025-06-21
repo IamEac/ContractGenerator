@@ -1,0 +1,296 @@
+/* Estilos básicos para que se vea bien */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+/* Container principal */
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+/* Card principal */
+.bg-white {
+  background-color: white;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+/* Textos */
+.text-center {
+  text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+/* Formularios */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.border-red-500 {
+  border-color: #ef4444 !important;
+}
+
+/* Labels */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* Spacing */
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+/* Flex */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+/* Botones */
+button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.bg-blue-500:hover {
+  background-color: #2563eb;
+}
+
+.bg-gray-500 {
+  background-color: #6b7280;
+  color: white;
+}
+
+.bg-gray-500:hover {
+  background-color: #4b5563;
+}
+
+.bg-green-500 {
+  background-color: #10b981;
+  color: white;
+}
+
+.bg-green-500:hover {
+  background-color: #059669;
+}
+
+.bg-gray-200 {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+}
+
+/* Indicador de pasos */
+.flex > div {
+  display: flex;
+  align-items: center;
+}
+
+/* Price Display */
+.fixed {
+  position: fixed;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-blue-500 {
+  border-color: #3b82f6;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+/* Alertas y boxes */
+.bg-amber-50 {
+  background-color: #fffbeb;
+}
+
+.text-amber-800 {
+  color: #92400e;
+}
+
+.bg-blue-50 {
+  background-color: #eff6ff;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+.hover\:border-gray-400:hover {
+  border-color: #9ca3af;
+}
+
+/* Otros */
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .fixed {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 1rem;
+  }
+}
