@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Calendar, Clock, Users, DollarSign, Percent, Star, Package, AlertCircle, FileText, Plus, User, Mail, Phone, MapPin, Edit2, Check } from 'lucide-react';
 
 const VenuePricingCalculator = () => {
@@ -92,8 +92,8 @@ const VenuePricingCalculator = () => {
     }
   };
 
-  // Event types
-  const eventTypes = {
+  // Event types (MODIFICADO CON useMemo)
+  const eventTypes = useMemo(() => ({
     wedding: { name: 'Wedding', priceMultiplier: 1.1, includesAlcohol: true },
     quinceanera: { name: 'Quinceañera', priceMultiplier: 1.05, includesAlcohol: true },
     sweet16: { name: 'Sweet 16', priceMultiplier: 1.0, includesAlcohol: false },
@@ -104,10 +104,10 @@ const VenuePricingCalculator = () => {
     graduation: { name: 'Graduation', priceMultiplier: 0.9, includesAlcohol: true },
     communion: { name: 'First Communion', priceMultiplier: 0.9, includesAlcohol: false },
     custom: { name: 'Other Event', priceMultiplier: 1.0, includesAlcohol: true }
-  };
+  }), []);
 
-  // Add-on services with package restrictions
-  const addOnServices = [
+  // Add-on services with package restrictions (MODIFICADO CON useMemo)
+  const addOnServices = useMemo(() => [
     { id: 'crazyHour', name: 'Crazy Hour', price: 450, excludePackages: [] },
     { id: 'premiumAlcohol', name: 'Premium Alcohol', price: 18, perPerson: true, excludePackages: [] },
     { id: 'extraHour', name: 'Extra Hour', price: 800, excludePackages: [] },
@@ -123,7 +123,7 @@ const VenuePricingCalculator = () => {
     { id: 'miniDesserts', name: 'Mini Desserts (min 36)', price: 3, perPerson: true, excludePackages: [] },
     { id: 'masterCeremonies', name: 'Master of Ceremonies', price: 250, excludePackages: [] },
     { id: 'animation', name: 'Animation', price: 250, excludePackages: [] }
-  ];
+  ], []);
 
   // Validation functions
   const validateEmail = (email) => {
@@ -182,7 +182,7 @@ const VenuePricingCalculator = () => {
     );
   };
 
-  // Calculate pricing
+  // Calculate pricing (MODIFICADO CON addOnServices y eventTypes en dependencias)
   useEffect(() => {
     if (!eventDetails.venue || !eventDetails.packageType || !eventDetails.eventType) return;
 
@@ -268,7 +268,7 @@ const VenuePricingCalculator = () => {
       discountAmount: Math.round(discountAmount),
       total: Math.round(total)
     });
-}, [eventDetails, customPricing, addOnServices, eventTypes]);
+  }, [eventDetails, customPricing, addOnServices, eventTypes]);
 
   // Generate Google Calendar event
   const generateGoogleCalendarEvent = () => {
@@ -1022,6 +1022,7 @@ Total: $${pricing.total.toLocaleString()}`;
                           value={customPricing.basePrice || pricing.basePrice}
                           onChange={(e) => setCustomPricing({...customPricing, basePrice: parseFloat(e.target.value) || 0})}
                           className="w-28 p-1 border rounded"
+                          step="0.01"
                         />
                         <button
                           onClick={() => setEditMode({...editMode, basePrice: false})}
