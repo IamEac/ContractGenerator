@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, Users, DollarSign, Percent, Star, Package, AlertCircle, FileText, Plus, User, Mail, Phone, MapPin, Edit2, Check, X } from 'lucide-react';
+import { Calendar, Clock, Users, DollarSign, Percent, Star, Package, AlertCircle, FileText, Plus, User, Mail, Phone, MapPin, Edit2, Check } from 'lucide-react';
 
 const VenuePricingCalculator = () => {
   // State management
@@ -268,7 +268,7 @@ const VenuePricingCalculator = () => {
       discountAmount: Math.round(discountAmount),
       total: Math.round(total)
     });
-  }, [eventDetails, customPricing]);
+}, [eventDetails, customPricing, addOnServices, eventTypes]);
 
   // Generate Google Calendar event
   const generateGoogleCalendarEvent = () => {
